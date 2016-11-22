@@ -1,0 +1,30 @@
+ddl:
+  drop_email: "DROP TABLE IF EXISTS  email;"
+  create_email: "CREATE TABLE `email` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `message_id` varchar(250) NOT NULL UNIQUE DEFAULT '',
+  `sender` varchar(150) DEFAULT NULL,
+  `subject` varchar(400) DEFAULT NULL,
+  `email_date` datetime DEFAULT NULL,
+  `label` varchar(15) DEFAULT NULL,
+  `sub_md5` varchar(55) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;"
+  drop_recipient: "DROP TABLE IF EXISTS  recipient;"
+  create_recipient: "CREATE TABLE `recipient` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `message_id` varchar(250) NOT NULL DEFAULT '',
+  `sender` varchar(150) DEFAULT NULL,
+  `recipient` varchar(150) DEFAULT '',
+  `is_to` tinyint(1) DEFAULT NULL,
+  `is_cc` tinyint(1) DEFAULT NULL,
+  `is_bcc` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;"
+
+config:
+  user: test
+  pass: test
+  port: 3306
+  schema: test
+
